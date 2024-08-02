@@ -17,11 +17,11 @@ class _PslSplashScreenState extends State<PslSplashScreen> {
     _navigate();
   }
   _navigate() async{
-    await Future.delayed(Duration(milliseconds: 1500),(){});
+    // await Future.delayed(Duration(milliseconds: 1500),(){});
+    await Future.delayed(Duration(seconds: 2));
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
       return IntroScreenOne();
     }));
-
   }
   @override
   Widget build(BuildContext context) {

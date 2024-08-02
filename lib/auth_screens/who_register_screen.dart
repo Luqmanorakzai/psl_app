@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:psl_app/auth_screens/player_registration_screen.dart';
 import 'package:psl_app/auth_screens/user_register_screen.dart';
 import 'package:psl_app/custom_widgets/auth_backgroun_image.dart';
 import 'package:psl_app/custom_widgets/custom_back_arrwo.dart';
@@ -55,6 +56,9 @@ class WhoRegisterScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: (){
                       //Navigate to player
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return PlayerRegistrationScreen();
+                      }));
                     },
                     child: Container(
                       height: 50,

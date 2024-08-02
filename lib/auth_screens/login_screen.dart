@@ -100,9 +100,7 @@ class LogInScreen extends StatelessWidget {
                 ),
                 // custom botton
                 CustomLoginSignupBtn(btnName: 'LogIn', onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return WhoRegisterScreen();
-                  }));
+
                   print('Clicked');
                     }),
                 const SizedBox(
@@ -116,8 +114,9 @@ class LogInScreen extends StatelessWidget {
                       width: 2,
                     ),
                     GestureDetector(onTap: () {
-
-
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return WhoRegisterScreen();
+                      }));
 
                     }, child: const Text('Sign up', style:
                     TextStyle(color: Color(0xff7091F5), fontSize: 16),)),

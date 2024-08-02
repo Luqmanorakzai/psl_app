@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../custom_widgets/auth_backgroun_image.dart';
 import '../custom_widgets/custom_back_arrwo.dart';
 import '../custom_widgets/custom_login_signup_btn.dart';
+import 'login_screen.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   const ChangePasswordScreen({super.key});
@@ -85,6 +86,9 @@ class ChangePasswordScreen extends StatelessWidget {
                 height: 20,
               ),
               CustomLoginSignupBtn(btnName: 'Save changes', onTap: (){
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                  return LogInScreen();
+                }));
 
 
               })
