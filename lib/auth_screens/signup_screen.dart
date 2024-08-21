@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/auth_screens/login_screen.dart';
 import '../custom_widgets/auth_backgroun_image.dart';
 import '../custom_widgets/custom_back_arrwo.dart';
 import '../custom_widgets/custom_login_signup_btn.dart';
-class UserRegisterScreen extends StatelessWidget {
-  const UserRegisterScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +23,11 @@ class UserRegisterScreen extends StatelessWidget {
                 }),
               ),
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               Container(
-                height: 180,
-                width:180,
+                height: 180.h,
+                width:180.w,
                 decoration: BoxDecoration(
                   image:const  DecorationImage(
                       image: AssetImage(
@@ -35,37 +36,37 @@ class UserRegisterScreen extends StatelessWidget {
                   color: Color(0xff793FDF).withOpacity(.25),
                 ),
               ),
-              const   Padding(
+              Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    Text('Forgoat\nPassword',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
+                    Text('Hey, Register Now\n to PSL',style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.w500,color: Colors.black),),
                   ],
                 ),
               ),
               TextFormField(
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
                     hintText: 'Name',
                     prefixIcon: Icon(Icons.person)
                 ),
               ),
               TextFormField(
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                    hintText: '@email address',
-                    prefixIcon: Icon(Icons.email_outlined)
-                ),
-              ),
-              TextFormField(
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.phone,style: TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
                     hintText: 'contact number',
                     prefixIcon: Icon(Icons.phone)
                 ),
               ),
               TextFormField(
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
+                    hintText: '@email address',
+                    prefixIcon: Icon(Icons.email_outlined)
+                ),
+              ),
+              TextFormField(
+                keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
                 obscureText: true,
                 decoration: const InputDecoration(
                     hintText: 'Password',
@@ -73,19 +74,19 @@ class UserRegisterScreen extends StatelessWidget {
                     suffixIcon: Icon(Icons.remove_red_eye_outlined)
                 ),
               ),
-              const    SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
-              CustomLoginSignupBtn(btnName: 'Register', onTap: (){
+              CustomLoginSignupBtn(btnName: 'SignUp Now', onTap: (){
                 // navigate to
               }),
-              const    SizedBox(
-                height: 10,
+              SizedBox(
+                height: 10.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Have allready an accont?'),
+                  Text('Have allready an accont?',style: TextStyle(color: Colors.black),),
                   InkWell(
 
                       onTap: (){
@@ -93,7 +94,7 @@ class UserRegisterScreen extends StatelessWidget {
                           return LogInScreen();
                         }));
                       },
-                      child: Text('LogIn',style: TextStyle(color: Color(0xff7091F5), fontWeight: FontWeight.w500,fontSize: 16),)),
+                      child: Text(' LogIn',style: TextStyle(color: Color(0xff7091F5), fontWeight: FontWeight.w500,fontSize: 16.sp),)),
                 ],
               ),
             ],),

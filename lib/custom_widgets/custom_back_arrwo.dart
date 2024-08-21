@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomBackArro extends StatelessWidget {
   final VoidCallback onTap;
   const CustomBackArro({super.key, required this.onTap});
@@ -7,8 +8,8 @@ class CustomBackArro extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
-        width: 70,
+        height: 50.h,
+        width: 70.w,
         decoration: BoxDecoration(
           color: Color(0xff793FDF),
           borderRadius: BorderRadius.circular(10)

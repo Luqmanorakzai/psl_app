@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/auth_screens/forgoat_screen.dart';
-import 'package:psl_app/auth_screens/who_register_screen.dart';
+import 'package:psl_app/auth_screens/signup_screen.dart';
 import 'package:psl_app/custom_widgets/auth_backgroun_image.dart';
 import 'package:psl_app/custom_widgets/custom_login_signup_btn.dart';
+import 'package:psl_app/user_home_screen.dart';
 
 class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
@@ -11,8 +13,8 @@ class LogInScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           body: Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: double.infinity.h,
+        width: double.infinity.h,
         child: AuthBackgroundImage(
             child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -22,28 +24,27 @@ class LogInScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 50.0),
                   child: Container(
-                    height: 200,
-                    width: 200,
+                    height: 200.h,
+                    width: 200.w,
                     decoration: BoxDecoration(
                         color: Colors.deepPurple.withOpacity(0.15),
                         shape: BoxShape.circle,
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image:
-                                AssetImage('assets/images/introPlayer2.png'))),
+                        image: const DecorationImage(
+                            image: AssetImage(
+                                'assets/images/groupIcons/psl_logo_icon.png'))),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+               SizedBox(
+                  height: 15.h,
                 ),
-                const Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
                       Text(
-                        'Welcome\nBack',
+                        'Welcome to\nHPL Psl',
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w500),
+                            fontSize: 18.sp, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
                     ],
                   ),
@@ -51,22 +52,22 @@ class LogInScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
                     decoration: const InputDecoration(
-                      hintText: ('Contact number'),
+                      hintText: ('Email or Phone'),
                       prefixIcon: Icon(
-                        Icons.phone,
+                        Icons.email_outlined,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     obscureText: true,
-                    obscuringCharacter:'*',
-                    keyboardType: TextInputType.text,
+                    obscuringCharacter: '*',
+                    keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
                     decoration: const InputDecoration(
                       suffixIcon: Icon(Icons.remove_red_eye_outlined),
                       hintText: ('Your Password'),
@@ -76,7 +77,7 @@ class LogInScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+               SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -85,41 +86,51 @@ class LogInScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           //navigate to forgot screen
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
                             return ForgoatScreen();
                           }));
                         },
-                        child:const  Text(
+                        child: Text(
                           'Forgoat Password!',
                           style:
-                              TextStyle(color: Color(0xff7091F5), fontSize: 16),
+                              TextStyle(color: Color(0xff7091F5), fontSize: 16.sp),
                         ),
                       ),
                     ],
                   ),
                 ),
                 // custom botton
-                CustomLoginSignupBtn(btnName: 'LogIn', onTap: () {
-
-                  print('Clicked');
+                CustomLoginSignupBtn(
+                    btnName: 'LogIn',
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return UserHomeScreen();
+                      }));
                     }),
-                const SizedBox(
-                  height: 10,
+               SizedBox(
+                  height: 10.sp,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  const   Text("Don't have an account?"),
-                const SizedBox(
-                      width: 2,
+                    const Text("Don't have an account?",style: TextStyle(color:Colors.black),),
+                    SizedBox(
+                      width: 2.w,
                     ),
-                    GestureDetector(onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return WhoRegisterScreen();
-                      }));
-
-                    }, child: const Text('Sign up', style:
-                    TextStyle(color: Color(0xff7091F5), fontSize: 16),)),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return const SignUpScreen();
+                          }));
+                        },
+                        child: const Text(
+                          'Sign up',
+                          style:
+                              TextStyle(color: Color(0xff7091F5), fontSize: 16),
+                        )),
                   ],
                 )
               ],

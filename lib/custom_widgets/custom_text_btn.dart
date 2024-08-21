@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 class CustomTextBtn extends StatelessWidget {
  final VoidCallback onTap;
   const CustomTextBtn({super.key, required this.onTap});

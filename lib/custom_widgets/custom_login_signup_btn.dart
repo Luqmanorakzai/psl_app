@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomLoginSignupBtn extends StatelessWidget {
   final String btnName;
@@ -12,8 +13,8 @@ class CustomLoginSignupBtn extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 45,
-          width: double.infinity,
+          height: 45.h,
+          width: double.infinity.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               gradient:const LinearGradient(
@@ -21,7 +22,7 @@ class CustomLoginSignupBtn extends StatelessWidget {
                   colors: [Color(0xff7091F5),Color(0xff793FDF)]
               )
           ),
-          child: Center(child: Text(btnName,style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white,fontSize: 18),)),
+          child: Center(child: Text(btnName,style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white,fontSize: 18.sp),)),
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/auth_screens/login_screen.dart';
 import 'package:psl_app/custom_widgets/custom_next_btn.dart';
 import 'package:psl_app/custom_widgets/custom_text_btn.dart';
@@ -16,8 +17,8 @@ class IntroScreenTwo extends StatelessWidget {
             clipBehavior: Clip.none,
             children: [
               Container(
-                height: double.infinity,
-                width: double.infinity,
+                height: double.infinity.h,
+                width: double.infinity.w,
                 // height: 300,
                 // width: 500,
                 decoration: BoxDecoration(
@@ -30,8 +31,8 @@ class IntroScreenTwo extends StatelessWidget {
                 right: 270,
                 top: -70,
                 child: Container(
-                  height: 120,
-                  width: 200,
+                  height: 120.h,
+                  width: 200.w,
                   decoration: BoxDecoration(
                       color: Colors.deepPurple.withOpacity(0.25),
                       shape: BoxShape.circle),
@@ -41,8 +42,8 @@ class IntroScreenTwo extends StatelessWidget {
                 left: 270,
                 bottom: -130,
                 child: Container(
-                  height: 200,
-                  width: 200,
+                  height: 200.h,
+                  width: 200.h,
                   decoration: BoxDecoration(
                       color: Colors.deepPurple.withOpacity(0.25),
                       shape: BoxShape.circle),
@@ -52,8 +53,8 @@ class IntroScreenTwo extends StatelessWidget {
                 right: 330,
                 bottom: 150,
                 child: Container(
-                  height: 100,
-                  width: 100,
+                  height: 100.h,
+                  width: 100.h,
                   decoration: BoxDecoration(
                       color: Colors.deepPurple.withOpacity(0.25),
                       shape: BoxShape.circle),
@@ -61,27 +62,28 @@ class IntroScreenTwo extends StatelessWidget {
               ),
               Positioned (
                 top: 50,
+                left: 50,
                 child: Container(
-                  height: 200,
-                  width: 400,
+                  height: 250.h,
+                  width: 250.w,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/introPlayer2.png'),
+                        image: AssetImage('assets/images/groupIcons/hblpsl-removebg-preview.png'),
                       )),
                 ),
               ),
               Positioned(
                 top: 300,
-                left: 30,
+                left: 70,
                 child: Column(
                   children: [
                     Text(
-                      'Players Details',
+                      'PSL Details',
                       style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                     ),
                     Text(
                         textAlign: TextAlign.center,
-                        'Managing all Players at onc place can easy to \n maintain their perfomaces ')
+                        'Managing Paksitan Super League\nWith Live Score & Highlights ')
                   ],
                 ),
               ),
@@ -96,15 +98,16 @@ class IntroScreenTwo extends StatelessWidget {
                 child: Row(
                   children: [
                     CustomTextBtn(onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return LogInScreen();
+                      }));
 
                     }),
                     SizedBox(
                       width: 130,
                     ),
                     CustomNextBotton(btnName: 'Next', onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return LogInScreen();
-                      }));
+
                     })
                   ],
                 ),
