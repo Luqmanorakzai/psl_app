@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "264919277704",
+    "project_id": "psl-app-915e2",
+    "storage_bucket": "psl-app-915e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264919277704:android:5ef57804622f37e1cf3f3d",
+        "android_client_info": {
+          "package_name": "com.example.psl_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhTa4EsNo2efPT0InxWLr5z8CPAjXNur0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

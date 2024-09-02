@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:psl_app/auth_screens/forgoat_screen.dart';
-import 'package:psl_app/auth_screens/signup_screen.dart';
+import 'package:psl_app/auth_screens/auth_forgot/forgoat_screen.dart';
+import 'package:psl_app/auth_screens/auth_signup/signup_screen.dart';
 import 'package:psl_app/custom_widgets/auth_backgroun_image.dart';
 import 'package:psl_app/custom_widgets/custom_login_signup_btn.dart';
 import 'package:psl_app/user_home_screen.dart';

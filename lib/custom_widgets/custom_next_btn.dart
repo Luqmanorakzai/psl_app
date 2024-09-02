@@ -25,7 +25,7 @@ class CustomNextBotton extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w500,
               color: Colors.white,
-              fontSize: 18.sp),
+              fontSize: 18.sp,),
         )),
       ),
     );

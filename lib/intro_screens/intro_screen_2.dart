@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:psl_app/auth_screens/login_screen.dart';
+import 'package:psl_app/auth_screens/auth_login/login_screen.dart';
 import 'package:psl_app/custom_widgets/custom_next_btn.dart';
 import 'package:psl_app/custom_widgets/custom_text_btn.dart';
 
@@ -60,17 +60,13 @@ class IntroScreenTwo extends StatelessWidget {
                       shape: BoxShape.circle),
                 ),
               ),
-              Positioned (
-                top: 50,
-                left: 50,
-                child: Container(
-                  height: 250.h,
-                  width: 250.w,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/groupIcons/hblpsl-removebg-preview.png'),
-                      )),
-                ),
+              Container(
+                height: 250.h,
+                width: 400.w,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/pslIcon-removebg-preview.png'),
+                    )),
               ),
               Positioned(
                 top: 300,
@@ -79,19 +75,19 @@ class IntroScreenTwo extends StatelessWidget {
                   children: [
                     Text(
                       'PSL Details',
-                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                      style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w500,color: Colors.black),
                     ),
                     Text(
                         textAlign: TextAlign.center,
-                        'Managing Paksitan Super League\nWith Live Score & Highlights ')
+                        'Managing Paksitan Super League\nWith Live Score & Highlights',style: TextStyle(color: Colors.black),)
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 250),
-                child: Center(
-                    child: Image.asset('assets/images/groupIcons/Group 1.png')),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 250),
+              //   child: Center(
+              //       child: Image.asset('assets/images/groupIcons/Group 1.png')),
+              // ),
               Positioned(
                 top: 550,
                 left: 30,
@@ -107,7 +103,9 @@ class IntroScreenTwo extends StatelessWidget {
                       width: 130,
                     ),
                     CustomNextBotton(btnName: 'Next', onTap: () {
-
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return LogInScreen();
+                      }));
                     })
                   ],
                 ),

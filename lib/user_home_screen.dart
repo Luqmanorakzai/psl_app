@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/custom_widgets/custom_app_bar.dart';
 import 'package:psl_app/custom_widgets/custom_dashboard_container.dart';
 import 'package:psl_app/custom_widgets/custom_tab_bar_container.dart';
@@ -654,7 +655,8 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                   ),
                   // Point Table portion
                   Container(
-                    height: 450,
+                    height: 460.h,
+                    width: double.infinity.w,
                     decoration: BoxDecoration(
                       color:Color(0xffF1F2FF),
                       borderRadius: BorderRadius.circular(10),

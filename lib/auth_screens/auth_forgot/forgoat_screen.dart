@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/custom_widgets/auth_backgroun_image.dart';
 import 'package:psl_app/custom_widgets/custom_login_signup_btn.dart';
-import '../custom_widgets/custom_back_arrwo.dart';
+import '../../custom_widgets/custom_back_arrwo.dart';
 import 'change_password_screen.dart';
 
 class ForgoatScreen extends StatelessWidget {

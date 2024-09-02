@@ -7,6 +7,6 @@ class CustomTextBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-        child: Text('Skip for Now'));
+        child: Text('Skip for Now',style: TextStyle(color: Colors.black),));
   }
 }
