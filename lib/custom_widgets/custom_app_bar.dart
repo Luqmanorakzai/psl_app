@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBarForUser extends StatelessWidget
     implements PreferredSizeWidget {
   final String title;
-  const CustomAppBarForUser({super.key, required this.title});
+  const CustomAppBarForUser({super.key, required this.title,});
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -43,7 +42,7 @@ class CustomAppBarForUser extends StatelessWidget
           padding: EdgeInsets.only(right: 10),
           child: Icon(
             color: Colors.white,
-            Icons.notifications),
+            Icons.login_outlined),
         )],
     );
   }

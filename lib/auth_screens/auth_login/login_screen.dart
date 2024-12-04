@@ -1,13 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:psl_app/auth_screens/auth_forgot/forgoat_screen.dart';
 import 'package:psl_app/auth_screens/auth_signup/signup_screen.dart';
 import 'package:psl_app/custom_widgets/auth_backgroun_image.dart';
 import 'package:psl_app/custom_widgets/custom_login_signup_btn.dart';
-import 'package:psl_app/user_home_screen.dart';
+import 'package:psl_app/utility/toast_popup.dart';
 
-class LogInScreen extends StatelessWidget {
+import '../../user_home_screen.dart';
+
+class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
+
+  @override
+  State<LogInScreen> createState() => _LogInScreenState();
+}
+
+class _LogInScreenState extends State<LogInScreen> {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,7 +46,7 @@ class LogInScreen extends StatelessWidget {
                                 'assets/images/groupIcons/psl_logo_icon.png'))),
                   ),
                 ),
-               SizedBox(
+                SizedBox(
                   height: 15.h,
                 ),
                 Padding(
@@ -44,7 +56,9 @@ class LogInScreen extends StatelessWidget {
                       Text(
                         'Welcome to\nHPL Psl',
                         style: TextStyle(
-                            fontSize: 18.sp, fontWeight: FontWeight.w500,color: Colors.black),
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
                       ),
                     ],
                   ),
@@ -52,7 +66,9 @@ class LogInScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
+                    controller: emailController,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(color: Colors.black),
                     decoration: const InputDecoration(
                       hintText: ('Email or Phone'),
                       prefixIcon: Icon(
@@ -65,9 +81,11 @@ class LogInScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    controller: passwordController,
                     obscureText: true,
                     obscuringCharacter: '*',
-                    keyboardType: TextInputType.text,style: TextStyle(color: Colors.black),
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(color: Colors.black),
                     decoration: const InputDecoration(
                       suffixIcon: Icon(Icons.remove_red_eye_outlined),
                       hintText: ('Your Password'),
@@ -77,7 +95,7 @@ class LogInScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-               SizedBox(height: 10.h),
+                SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -92,9 +110,9 @@ class LogInScreen extends StatelessWidget {
                           }));
                         },
                         child: Text(
-                          'Forgoat Password!',
-                          style:
-                              TextStyle(color: Color(0xff7091F5), fontSize: 16.sp),
+                          'Forgot Password!',
+                          style: TextStyle(
+                              color: Color(0xff7091F5), fontSize: 16.sp),
                         ),
                       ),
                     ],
@@ -103,19 +121,48 @@ class LogInScreen extends StatelessWidget {
                 // custom botton
                 CustomLoginSignupBtn(
                     btnName: 'LogIn',
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return UserHomeScreen();
-                      }));
+                    onTap: () async {
+                      // sign in from here
+                      var email = emailController.text.trim();
+                      var password = passwordController.text.trim();
+                      // validation
+                      if (email.isEmpty && password.isEmpty) {
+                        ToastPopup().toastShow('email or password is empty',
+                            Colors.deepPurpleAccent, Colors.white);
+                        return;
+                      }
+                      // exception goes here
+                      try {
+
+                        // this will allow to signin user if credential is ture
+                        FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await firebaseAuth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                        // navigate according to the userCredential
+                        if(userCredential.user!=null){
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                            return UserHomeScreen();
+                          }));
+                        }else{
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                            return SignUpScreen();
+                          }));
+                        }
+                      } on FirebaseAuth catch (e) {
+
+                      }
                     }),
-               SizedBox(
+                SizedBox(
                   height: 10.sp,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account?",style: TextStyle(color:Colors.black),),
+                    const Text(
+                      "Don't have an account?",
+                      style: TextStyle(color: Colors.black),
+                    ),
                     SizedBox(
                       width: 2.w,
                     ),
